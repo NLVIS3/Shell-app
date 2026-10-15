@@ -65,9 +65,10 @@ p {
 
 .business-item h4 {
   color: #5b21b6;
-  font-size: 0.9rem;
-  margin: 0 0 0.3rem 0;
-  font-weight: 600;
+ font-size: 0.95rem;
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .business-item p {

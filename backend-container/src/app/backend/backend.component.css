@@ -1,6 +1,6 @@
 .backend-container {
-  background: linear-gradient(135deg, #fde8c8 0%, #fdf5eb 100%);
-  border: 2px solid #fbbf75;
+  background: #d4cbf5;
+  border: 2px solid #62529c;
   border-radius: 12px;
   padding: 1rem 1.25rem;
   height: 100%;
@@ -27,7 +27,7 @@
 }
 
 h2 {
-  color: #451a03;
+  color: #1e1b4b;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   word-break: break-word;
@@ -37,7 +37,7 @@ h2 {
 }
 
 p {
-  color: #78350f;
+  color: #62529c;
   margin-bottom: 0.75rem;
   line-height: 1.6;
   word-wrap: break-word;
@@ -55,7 +55,7 @@ p {
 
 .backend-item {
   background: rgba(255, 255, 255, 0.7);
-  border-left: 4px solid #d97706;
+  border-left: 4px solid #62529c;
   border-radius: 8px;
   padding: 0.7rem 0.85rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -69,7 +69,7 @@ p {
 }
 
 .backend-item h4 {
-  color: #451a03;
+  color: #62529c;
   font-size: 0.95rem;
   margin: 0 0 0.4rem 0;
   font-weight: 700;
@@ -79,7 +79,7 @@ p {
 .backend-item p {
   margin-bottom: 0;
   font-size: 0.8rem;
-  color: #92400e;
+  color: #62529c;
 }
 
 .service-list {
@@ -92,7 +92,7 @@ p {
 }
 
 .service-list li {
-  color: #78350f;
+  color: #62529c;
   font-size: 0.8rem;
   line-height: 1.5;
   word-wrap: break-word;
@@ -104,12 +104,12 @@ p {
   content: "▸";
   position: absolute;
   left: 0;
-  color: #d97706;
+  color: #62529c;
   font-weight: bold;
 }
 
 .service-list strong {
-  color: #451a03;
+  color: #62529c;
   font-weight: 700;
 }
 
