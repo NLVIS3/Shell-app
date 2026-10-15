@@ -1,0 +1,188 @@
+.ui-container {
+  background: #d1fae5;
+  border: 2px solid #6ee7b7;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: #059669;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+h2 {
+  color: #064e3b;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+
+p {
+  color: #065f46;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #047857;
+  font-size: 0.8rem;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+/* Extra Small devices (0px - 480px) */
+@media (max-width: 480px) {
+  .ui-container {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-list {
+    gap: 0.25rem;
+  }
+
+  .feature-list li {
+    font-size: 0.7rem;
+  }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* Small devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .ui-container {
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-list {
+    gap: 0.3rem;
+  }
+
+  .feature-list li {
+    font-size: 0.75rem;
+  }
+}
+
+/* Tablets and Medium devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ui-container {
+    padding: 1rem 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+
+  .feature-list {
+    gap: 0.3rem;
+  }
+
+  .feature-list li {
+    font-size: 0.78rem;
+  }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .ui-container {
+    padding: 1rem 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .feature-list {
+    gap: 0.3rem;
+  }
+
+  .feature-list li {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ultra-wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .ui-container {
+    padding: 1.2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .feature-list {
+    gap: 0.35rem;
+  }
+
+  .feature-list li {
+    font-size: 0.85rem;
+  }
+}

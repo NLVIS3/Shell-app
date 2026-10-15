@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <!-- Purple pelican icon -->
+  <g id="pelican">
+    <!-- Head -->
+    <circle cx="25" cy="25" r="12" fill="#470054"/>
+    <!-- Neck -->
+    <path d="M 25 37 Q 20 45 22 55" stroke="#470054" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- Body -->
+    <ellipse cx="25" cy="62" rx="8" ry="10" fill="#470054"/>
+    <!-- Wing -->
+    <path d="M 30 55 Q 42 50 45 65" stroke="#470054" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- Beak pouch -->
+    <path d="M 20 28 Q 10 35 8 45 Q 10 42 20 38" fill="#470054" opacity="0.8"/>
+  </g>
+
+  <!-- Text: ROYAL LONDON -->
+  <text x="65" y="45" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#470054" letter-spacing="2">
+    ROYAL LONDON
+  </text>
+</svg>

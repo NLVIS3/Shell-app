@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  background: #f0f2f5;
+  min-height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Mobile First: Extra Small devices (0px and up) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Small devices (481px and up) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Large devices (769px and up) */
+@media (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Ultra-large devices (1400px and up) */
+@media (min-width: 1400px) {
+  body {
+    font-size: 17px;
+  }
+}

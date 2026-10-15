@@ -1,0 +1,44 @@
+<div class="shell-layout">
+  <app-header></app-header>
+
+  <main class="content-area">
+    <!-- Default Shell View: Show all components -->
+    <ng-container *ngIf="router.url === '/' || router.url === ''">
+      <section class="main-section">
+        <app-main-loader></app-main-loader>
+      </section>
+
+      <section class="panels-section">
+        <div class="left-panel">
+          <app-ui-loader></app-ui-loader>
+        </div>
+        <div class="right-panel">
+          <app-backend-loader></app-backend-loader>
+        </div>
+      </section>
+    </ng-container>
+
+    <!-- Main Component Only -->
+    <ng-container *ngIf="router.url === '/main'">
+      <section class="single-component">
+        <app-main-loader></app-main-loader>
+      </section>
+    </ng-container>
+
+    <!-- UI Component Only -->
+    <ng-container *ngIf="router.url === '/ui'">
+      <section class="single-component">
+        <app-ui-loader></app-ui-loader>
+      </section>
+    </ng-container>
+
+    <!-- Backend Component Only -->
+    <ng-container *ngIf="router.url === '/backend'">
+      <section class="single-component">
+        <app-backend-loader></app-backend-loader>
+      </section>
+    </ng-container>
+  </main>
+
+  <app-footer></app-footer>
+</div>

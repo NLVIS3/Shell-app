@@ -1,0 +1,10 @@
+<header class="app-header">
+  <div class="header-inner">
+    <img src="assets/royal-london-logo.png" alt="Royal London" class="logo-image" (click)="navigateHome()" title="Back to Home">
+    <nav class="nav">
+      <a routerLink="/main" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Main</a>
+      <a routerLink="/ui" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">UI</a>
+      <a routerLink="/backend" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Backend</a>
+    </nav>
+  </div>
+</header>

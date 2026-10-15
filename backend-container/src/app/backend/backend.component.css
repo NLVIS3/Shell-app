@@ -1,0 +1,340 @@
+.backend-container {
+  background: linear-gradient(135deg, #fde8c8 0%, #fdf5eb 100%);
+  border: 2px solid #fbbf75;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(217, 119, 6, 0.3);
+  width: fit-content;
+}
+
+h2 {
+  color: #451a03;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  flex-shrink: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: #78350f;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.backend-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.backend-item {
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 4px solid #d97706;
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.backend-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(2px);
+}
+
+.backend-item h4 {
+  color: #451a03;
+  font-size: 0.95rem;
+  margin: 0 0 0.4rem 0;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.backend-item p {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  color: #92400e;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.service-list li {
+  color: #78350f;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  padding-left: 0.6rem;
+  position: relative;
+}
+
+.service-list li:before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #d97706;
+  font-weight: bold;
+}
+
+.service-list strong {
+  color: #451a03;
+  font-weight: 700;
+}
+
+.status-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.status-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
+  border-radius: 8px;
+  color: #92400e;
+  word-break: break-word;
+  flex-shrink: 0;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.status-row:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+  border-left-color: #d97706;
+}
+
+.header-row {
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
+  color: #451a03;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid #fbbf75;
+}
+
+.status-badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-badge.ok {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+}
+
+.status-badge.warn {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+}
+
+.latency {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: #b45309;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* Extra Small devices (0px - 480px) */
+@media (max-width: 480px) {
+  .backend-container {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .status-table {
+    gap: 0.2rem;
+    font-size: 0.65rem;
+  }
+
+  .status-row {
+    grid-template-columns: 1fr auto;
+    gap: 0.3rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .status-badge {
+    font-size: 0.6rem;
+    padding: 0.08rem 0.35rem;
+  }
+
+  .latency {
+    font-size: 0.6rem;
+  }
+}
+
+/* Small devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .backend-container {
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-table {
+    gap: 0.2rem;
+    font-size: 0.68rem;
+  }
+
+  .status-row {
+    grid-template-columns: 1fr auto auto;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .status-badge {
+    font-size: 0.62rem;
+  }
+
+  .latency {
+    font-size: 0.62rem;
+  }
+}
+
+/* Tablets and Medium devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .backend-container {
+    padding: 1rem 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+  }
+
+  .status-table {
+    gap: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .status-badge {
+    font-size: 0.65rem;
+  }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .backend-container {
+    padding: 1rem 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .status-table {
+    gap: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .status-row {
+    grid-template-columns: 1fr auto auto;
+    gap: 0.4rem;
+  }
+
+  .status-badge {
+    font-size: 0.65rem;
+  }
+}
+
+/* Ultra-wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .backend-container {
+    padding: 1.2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .status-table {
+    gap: 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  .status-row {
+    gap: 0.5rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 0.12rem 0.5rem;
+  }
+
+  .latency {
+    font-size: 0.75rem;
+  }
+}

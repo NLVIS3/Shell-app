@@ -1,0 +1,41 @@
+.app-footer {
+  background: #470054;
+  border-top: 2px solid #90caff;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.875rem;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Extra Small devices (0px - 480px) */
+@media (max-width: 480px) {
+  .app-footer {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Small devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .app-footer {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablets and Medium devices (769px and up) */
+@media (min-width: 769px) {
+  .app-footer {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Large devices (1400px and up) */
+@media (min-width: 1400px) {
+  .app-footer {
+    padding: 1.25rem 2rem;
+  }
+}

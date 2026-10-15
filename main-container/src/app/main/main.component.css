@@ -1,0 +1,263 @@
+.main-container {
+  background: #ede9fe;
+  border: 2px solid #a78bfa;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #1e1b4b;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+
+h3 {
+  color: #5b21b6;
+  font-size: 1.1rem;
+  margin: 0.75rem 0 0.5rem 0;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+
+p {
+  color: #4c1d95;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.business-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+
+.business-item {
+  background: rgba(255, 255, 255, 0.5);
+  border-left: 3px solid #a78bfa;
+  padding: 0.6rem 0.75rem;
+  border-radius: 4px;
+}
+
+.business-item h4 {
+  color: #5b21b6;
+  font-size: 0.9rem;
+  margin: 0 0 0.3rem 0;
+  font-weight: 600;
+}
+
+.business-item p {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.product-list li {
+  color: #6d28d9;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  word-wrap: break-word;
+  padding-left: 0.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid #c4b5fd;
+  border-radius: 8px;
+  padding: 0.75rem;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.info-card h4 {
+  color: #5b21b6;
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.info-card p {
+  color: #6d28d9;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+code {
+  background: #ddd6fe;
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+/* Extra Small devices (0px - 480px) */
+@media (max-width: 480px) {
+  .main-container {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .info-card {
+    padding: 0.6rem;
+  }
+
+  .info-card h4 {
+    font-size: 0.75rem;
+  }
+
+  .info-card p {
+    font-size: 0.65rem;
+  }
+
+  code {
+    font-size: 0.6rem;
+  }
+}
+
+/* Small devices (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-container {
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  p {
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .info-card {
+    padding: 0.65rem;
+  }
+
+  .info-card h4 {
+    font-size: 0.8rem;
+  }
+
+  .info-card p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablets and Medium devices (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    padding: 1rem 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .main-container {
+    padding: 1rem 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.6rem;
+  }
+}
+
+/* Ultra-wide screens (1400px and up) */
+@media (min-width: 1400px) {
+  .main-container {
+    padding: 1.2rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .info-card {
+    padding: 0.8rem;
+  }
+}
