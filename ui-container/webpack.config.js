@@ -1,11 +1,54 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
+const path = require('path');
 
-module.exports = withModuleFederationPlugin({
-  name: 'ui-container',
-  exposes: {
-    './UiComponent': './src/app/ui/ui.component.ts',
+module.exports = {
+  entry: './src/react/main.tsx',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'auto',
+    clean: true,
+    uniqueName: 'ui_container',
   },
-  shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+  experiments: {
+    outputModule: true,
   },
-});
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  devServer: {
+    port: 4202,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+    historyApiFallback: true,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'ui_container',
+      library: { type: 'module' },
+      filename: 'remoteEntry.js',
+      exposes: {
+        './UiComponent': './src/react/ui-entry.tsx',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
+};

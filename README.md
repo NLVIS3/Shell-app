@@ -6,7 +6,7 @@ An Angular 21 proof of concept for composing independently built frontend applic
 
 A microfrontend divides a frontend into smaller applications that can be developed, built, and deployed independently. A host application, called the **shell**, provides the common application frame and loads those applications at runtime. This can let teams work and release separately, but it also introduces runtime dependencies: the shell must be able to reach each remote, and shared libraries must remain compatible.
 
-This project demonstrates that pattern with one shell and three remote Angular applications. Each remote exposes a standalone Angular component, and the shell loads it from the remote's `remoteEntry.js` file.
+This project demonstrates that pattern with an Angular shell, two Angular remotes, and one React remote. Each remote is independently built and loaded from its `remoteEntry.js` file.
 
 ## Applications
 
@@ -14,12 +14,12 @@ This project demonstrates that pattern with one shell and three remote Angular a
 | --- | --- | --- | --- |
 | `shell-app` | Host shell, responsive layout, header, footer, and remote loading | `http://localhost:4200` | Loads all three remotes |
 | `main-container` | Royal London introduction content | `http://localhost:4201` | `./MainComponent` |
-| `ui-container` | UI architecture and technology overview | `http://localhost:4202` | `./UiComponent` |
+| `ui-container` | React UI architecture and technology overview | `http://localhost:4202` | `./UiComponent` (`mountUi`) |
 | `backend-container` | Backend services overview | `http://localhost:4203` | `./BackendComponent` |
 
-The shell's federation configuration maps the remotes to their local `remoteEntry.js` files. Each remote declares its exposed component in its own Webpack configuration. The shell uses a dedicated loader for each remote, calls `loadRemoteModule`, and renders the returned component dynamically with `NgComponentOutlet`.
+The shell's federation configuration maps the remotes to their local `remoteEntry.js` files. The Angular remotes expose standalone components, which the shell renders with `NgComponentOutlet`. The React UI remote exposes a `mountUi(container)` function; the shell's UI loader calls it and unmounts the React root when the loader is destroyed.
 
-Angular and other shared dependencies are configured as singletons with strict version checks. This helps avoid loading multiple incompatible copies of shared libraries at runtime.
+The Angular remotes share Angular dependencies as singletons with strict version checks. The UI remote bundles React separately, so it does not require React dependencies in the Angular shell.
 
 On the shell home view, the Main remote is displayed above the UI and Backend remotes. The shell layout places the UI and Backend panels side by side on wider screens and stacks them on smaller screens. The header logo returns to the home view, and the footer displays the current year.
 
@@ -41,6 +41,5 @@ Each application also provides `npm run build` for a production build and `npm r
 - This is an architecture demo. The remote content is static; it does not call backend APIs or implement production business workflows.
 - Remote URLs are configured for localhost, so deployment environments need their own remote URL configuration.
 - The shell template includes conditional views for `/main`, `/ui`, and `/backend`, but the router is currently configured with an empty route list. The header only provides navigation back to home, so the individual remote views need route definitions and navigation before those paths are dependable.
-- The remote loader components do not currently provide user-facing loading or error states if a remote is unavailable.
-
+- The Main and Backend remote loaders do not currently provide user-facing loading or error states if a remote is unavailable. The UI loader displays an error if the React remote cannot be loaded.
 
