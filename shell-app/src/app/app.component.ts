@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { MainLoaderComponent } from './loaders/main-loader.component';
 import { UiLoaderComponent } from './loaders/ui-loader.component';
 import { BackendLoaderComponent } from './loaders/backend-loader.component';
+import { LoginComponent } from './auth/login.component';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ import { BackendLoaderComponent } from './loaders/backend-loader.component';
     MainLoaderComponent,
     UiLoaderComponent,
     BackendLoaderComponent,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -24,5 +27,5 @@ import { BackendLoaderComponent } from './loaders/backend-loader.component';
 export class AppComponent {
   title = 'shell-app';
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, public auth: AuthService) {}
 }

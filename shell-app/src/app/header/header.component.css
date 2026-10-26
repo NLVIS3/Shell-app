@@ -34,6 +34,20 @@
   opacity: 0.8;
 }
 
+.logout-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #90caff;
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #90caff;
+  color: #000;
+}
+
 .nav {
   display: flex;
   align-items: center;

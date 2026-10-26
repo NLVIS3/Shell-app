@@ -14,4 +14,83 @@
         <li><strong>Security & Compliance:</strong> Ensures that all backend services adhere to industry standards and regulations.</li>
       </ul>
     </div>
+
+    <div class="backend-item">
+      <h4>Advisory Data</h4>
+      <p>View advisory agents and pension policies from the Insurance API.</p>
+      <button type="button" class="open-btn" (click)="openPopup()">View Agents &amp; Pensions</button>
+    </div>
+  </div>
 </div>
+
+@if (popupOpen()) {
+  <div class="overlay" (click)="closePopup()">
+    <div class="popup" role="dialog" aria-modal="true" aria-label="Agents and Pensions" (click)="$event.stopPropagation()">
+      <div class="popup-header">
+        <h3>Advisory Data</h3>
+        <button type="button" class="close-btn" aria-label="Close" (click)="closePopup()">&times;</button>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" class="tab" [class.active]="activeTab() === 'agents'"
+          [attr.aria-selected]="activeTab() === 'agents'" (click)="selectTab('agents')">
+          Agents ({{ agents().length }})
+        </button>
+        <button type="button" role="tab" class="tab" [class.active]="activeTab() === 'pensions'"
+          [attr.aria-selected]="activeTab() === 'pensions'" (click)="selectTab('pensions')">
+          Pensions ({{ pensions().length }})
+        </button>
+      </div>
+
+      <div class="tab-body" role="tabpanel">
+        @if (loading()) {
+          <p>Loading...</p>
+        } @else if (activeTab() === 'agents') {
+          @if (agentsError()) {
+            <p>{{ agentsError() }}</p>
+          } @else if (agents().length === 0) {
+            <p>No agents found.</p>
+          } @else {
+            <div class="status-table">
+              <div class="status-row header-row cols-4">
+                <span>Name</span>
+                <span>License</span>
+                <span>Region</span>
+                <span>Contact</span>
+              </div>
+              @for (agent of agents(); track agent.id) {
+                <div class="status-row cols-4">
+                  <span>{{ agent.name }}</span>
+                  <span>{{ agent.licenseNumber }}</span>
+                  <span>{{ agent.region }}</span>
+                  <span>{{ agent.email }}<br />{{ agent.phone }}</span>
+                </div>
+              }
+            </div>
+          }
+        } @else {
+          @if (pensionsError()) {
+            <p>{{ pensionsError() }}</p>
+          } @else if (pensions().length === 0) {
+            <p>No pensions found.</p>
+          } @else {
+            <div class="status-table">
+              <div class="status-row header-row">
+                <span>Policy</span>
+                <span>Holder (start date)</span>
+                <span class="latency">Monthly</span>
+              </div>
+              @for (pension of pensions(); track pension.id) {
+                <div class="status-row">
+                  <span>{{ pension.policyNumber }}</span>
+                  <span>{{ pension.holderName }} ({{ pension.startDate | date: 'dd MMM yyyy' }})</span>
+                  <span class="latency">{{ pension.monthlyAmount | currency: 'GBP' }}</span>
+                </div>
+              }
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+}
