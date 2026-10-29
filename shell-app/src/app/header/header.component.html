@@ -1,6 +1,69 @@
 <header class="app-header">
   <div class="header-inner">
     <img src="assets/royal-london-logo.png" alt="Royal London" class="logo-image" (click)="navigateHome()" title="Back to Home">
-    <button type="button" class="logout-btn" (click)="logout()">Sign out</button>
+    <div class="header-actions">
+      <div class="profile">
+        <button type="button" class="profile-btn" aria-label="Profile" aria-haspopup="menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"></path>
+          </svg>
+        </button>
+        <div class="profile-menu" role="menu">
+          <div class="profile-details">
+            @if (profile(); as p) {
+              <div class="profile-name">{{ p.username }}</div>
+              <div class="profile-row"><span>Email</span>{{ p.email }}</div>
+              <div class="profile-row"><span>User ID</span>{{ p.userId }}</div>
+              <div class="profile-row"><span>Member since</span>{{ p.createdAt | date: 'mediumDate' }}</div>
+              <div class="profile-row"><span>Last login</span>{{ p.lastLoginAt ? (p.lastLoginAt | date: 'medium') : '—' }}</div>
+            } @else {
+              <div class="profile-row">Profile unavailable</div>
+            }
+          </div>
+          <button type="button" role="menuitem" (click)="openChangePassword()">Change password</button>
+        </div>
+      </div>
+      <button type="button" class="logout-btn" (click)="logout()">Sign out</button>
+    </div>
   </div>
 </header>
+
+@if (dialogOpen()) {
+  <div class="dialog-backdrop" (click)="closeDialog()">
+    <form class="dialog" role="dialog" aria-modal="true" aria-labelledby="cp-title"
+      autocomplete="off" (click)="$event.stopPropagation()" (ngSubmit)="submitChangePassword()">
+      <h3 id="cp-title">Change password</h3>
+
+      <label for="cp-current">Current password</label>
+      <input id="cp-current" name="currentPassword" maxlength="128" autocomplete="current-password"
+        [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="currentPassword" required />
+
+      <label for="cp-new">New password</label>
+      <input id="cp-new" name="newPassword" maxlength="128" autocomplete="new-password"
+        [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="newPassword" required />
+
+      <label for="cp-confirm">Confirm new password</label>
+      <input id="cp-confirm" name="confirmPassword" maxlength="128" autocomplete="new-password"
+        [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="confirmPassword" required />
+
+      <label class="show-password">
+        <input type="checkbox" name="showPassword" [checked]="showPassword()"
+          (change)="showPassword.set(!showPassword())" />
+        Show password
+      </label>
+
+      @if (error()) {
+        <p class="dialog-error" role="alert">{{ error() }}</p>
+      }
+      @if (success()) {
+        <p class="dialog-success" role="status">{{ success() }}</p>
+      }
+
+      <div class="dialog-actions">
+        <button type="button" class="secondary" [disabled]="busy()" (click)="closeDialog()">Close</button>
+        <button type="submit" [disabled]="busy()">Update password</button>
+      </div>
+    </form>
+  </div>
+}

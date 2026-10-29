@@ -1,3 +1,33 @@
+.profile-details {
+  background: #fff;
+  color: #1f2328;
+  border: 1px solid #b9a6c7;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.profile-name {
+  font-weight: 700;
+  color: #470054;
+  font-size: 0.95rem;
+}
+
+.profile-row span {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #57606a;
+}
+
+.profile-row {
+  overflow-wrap: anywhere;
+}
+
 .app-header {
   background: #470054;
   border-bottom: 2px solid #90caff;
@@ -32,6 +62,158 @@
 .logo-image:hover {
   transform: scale(1.05);
   opacity: 0.8;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile {
+  position: relative;
+}
+
+.profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #90caff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile:hover .profile-btn,
+.profile:focus-within .profile-btn {
+  background: #90caff;
+  color: #000;
+}
+
+/* padding-top bridges the gap so the menu stays open while moving the pointer onto it */
+.profile-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding-top: 6px;
+  min-width: 240px;
+  z-index: 200;
+}
+
+.profile:hover .profile-menu,
+.profile:focus-within .profile-menu {
+  display: block;
+}
+
+.profile-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  color: #470054;
+  border: 1px solid #b9a6c7;
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.profile-menu button:hover {
+  background: #f3eefb;
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.dialog {
+  background: #fff;
+  border: 2px solid #470054;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: min(380px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dialog h3 {
+  margin: 0 0 0.5rem;
+  color: #470054;
+  text-align: center;
+}
+
+.dialog label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #470054;
+}
+
+.dialog input[type='text'],
+.dialog input[type='password'] {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #b9a6c7;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.dialog .show-password {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+}
+
+.dialog-error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.dialog-success {
+  color: #15803d;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.dialog-actions button {
+  padding: 0.5rem 0.9rem;
+  background: #470054;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dialog-actions button.secondary {
+  background: transparent;
+  color: #470054;
+  border: 1px solid #470054;
+}
+
+.dialog-actions button:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .logout-btn {

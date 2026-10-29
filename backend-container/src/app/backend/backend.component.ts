@@ -20,6 +20,10 @@ export interface Agent {
 
 type Tab = 'agents' | 'pensions';
 
+// Must match TOKEN_KEY in shell-app's AuthService (same page, same sessionStorage).
+const TOKEN_KEY = 'rlg_access_token';
+const REQUEST_TIMEOUT_MS = 15000;
+
 @Component({
   selector: 'app-backend',
   standalone: true,
@@ -64,10 +68,20 @@ export class BackendComponent implements OnInit {
     error: { set(value: string | null): void },
   ): Promise<void> {
     try {
+      const token = sessionStorage.getItem(TOKEN_KEY);
+      if (!token) {
+        error.set('Please sign in to view this data.');
+        return;
+      }
       const response = await fetch(`${this.baseUrl}/${resource}`, {
         method: 'GET',
-        headers: { accept: 'application/json' },
+        headers: { accept: 'application/json', authorization: `Bearer ${token}` },
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
+      if (response.status === 401) {
+        error.set('Your session has expired. Please sign in again.');
+        return;
+      }
       if (!response.ok) {
         console.error(`${resource} API request failed with status`, response.status);
         error.set(`Unable to load ${resource.toLowerCase()}.`);
