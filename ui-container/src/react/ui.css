@@ -254,3 +254,86 @@
   margin-bottom: 0.75rem;
   flex-shrink: 0;
 }
+
+/* User details popup */
+.ui-open-btn {
+  background: #62529c;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.ui-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 27, 75, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.ui-popup {
+  background: #fff;
+  border: 2px solid #62529c;
+  border-radius: 12px;
+  width: min(900px, 94vw);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+}
+
+.ui-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ui-popup-header h3 {
+  margin: 0;
+  color: #1e1b4b;
+}
+
+.ui-close-btn {
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #62529c;
+}
+
+.ui-popup-body {
+  overflow-y: auto;
+  min-height: 0;
+  margin-top: 0.75rem;
+}
+
+.ui-user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.ui-user-table th,
+.ui-user-table td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #d4cbf5;
+  color: #62529c;
+  word-break: break-word;
+}
+
+.ui-user-table th {
+  color: #1e1b4b;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
